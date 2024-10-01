@@ -1,0 +1,14 @@
+/* mandos/estilos/dualsense/dualsense.css */
+
+.cell {
+    position: relative;
+}
+
+.cell.highlight {
+    box-shadow: 
+        0 0 10px rgba(255, 255, 255, 0.8),  /* Luz suave */
+        0 0 20px rgba(255, 255, 255, 0.5),  /* Luz más fuerte */
+        0 0 30px rgba(255, 255, 255, 0.3);  /* Luz más difusa */
+    background-color: black;
+    z-index: 1;
+}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Tic Tac Toe</h1>
+        <div id="game-board">
+            <div class="cell" data-cell tabindex="0"></div>
+            <div class="cell" data-cell tabindex="1"></div>
+            <div class="cell" data-cell tabindex="2"></div>
+            <div class="cell" data-cell tabindex="3"></div>
+            <div class="cell" data-cell tabindex="4"></div>
+            <div class="cell" data-cell tabindex="5"></div>
+            <div class="cell" data-cell tabindex="6"></div>
+            <div class="cell" data-cell tabindex="7"></div>
+            <div class="cell" data-cell tabindex="8"></div>
+        </div>         
+        <h2 id="winner-message"></h2>
+        <button id="restartButton">Restart Game</button>
+    </div>
+
+    <!-- Contenedor para los globos -->
+    <div id="balloons-container"></div>
+    <audio id="click-sound" src="sound/click-sound.wav"></audio>
+    <audio id="no-wins-sound" src="sound/No-Wins.wav"></audio>
+    <audio id="X-Wins" src="sound/X-Wins.wav"></audio>
+    <audio id="O-Wins" src="sound/O-Wins.wav"></audio>
+    <audio id="Mando_Conectado" src="sound/Mando_Conectado.wav"></audio>
+    <audio id="Mando_Desconectado" src="Mando_Desconectado.wav"></audio>
+    <script src="script.js"></script>
+    <script src="gamepad.js"></script>
+    <script src="keyboard.js"></script>
+
+</body>
+</html>

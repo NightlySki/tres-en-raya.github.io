@@ -1,0 +1,11 @@
+/* mandos/estilos/wii-u/wii-u.css */
+
+.cell {
+    position: relative;
+}
+
+.cell.highlight {
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.7), 0 0 30px rgba(255, 20, 147, 0.5);
+    background-color: black;
+    z-index: 1;
+}

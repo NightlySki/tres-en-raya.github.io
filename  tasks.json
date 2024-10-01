@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-g",
+                "/Users/heidycolszewski/Desktop/TRES EN RAYA/touchpad.cpp",
+                "-o",
+                "/Users/heidycolszewski/Desktop/TRES EN RAYA/touchpad",
+                "-I/opt/homebrew/include/SDL2",
+                "-L/opt/homebrew/lib",
+                "-lSDL2"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": ["$gcc"],
+            "detail": "Compile the project with g++ and link SDL2"
+        }
+    ]
+}

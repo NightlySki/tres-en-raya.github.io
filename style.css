@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #2c2c2e;
+    background-image: linear-gradient(135deg, #1f1f21 0%, #35363a 100%);
+    color: #fff;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 3rem;
+    color: #ffcb57;
+    letter-spacing: 2px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.cell {
+    width: 150px;
+    height: 150px;
+    background: #3a3a3c;
+    border-radius: 15px;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.2),
+                -4px -4px 12px rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3rem;
+    color: #ffcb57;
+    cursor: pointer;
+    transition: transform 0.4s ease, background 0.3s ease;
+}
+
+.cell:hover {
+    background: #48484a;
+    transform: translateY(-5px) scale(1.05);
+}
+
+.cell:active {
+    transform: translateY(-1px) scale(0.98);
+    transition: transform 0.1s;
+}
+
+/* Añadir estilos de enfoque para las celdas */
+.cell:focus {
+    outline: none; /* Quitar el contorno predeterminado */
+    box-shadow: 0 0 0 4px rgba(255, 203, 87, 0.5); /* Resaltar la celda con un efecto de sombra */
+    background: #48484a; /* Mantener el cambio de fondo al hacer foco */
+    transform: scale(1.05); /* Efecto de aumento al hacer foco */
+}
+
+#restartButton {
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    background-color: #ffcb57;
+    color: #2c2c2e;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#restartButton:hover {
+    background-color: #ffb337;
+    transform: scale(1.05);
+}
+
+#winner-message {
+    margin-top: 20px;
+    font-size: 2rem;
+    color: #ffcb57;
+    min-height: 2rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    animation: winnerScale 1.5s ease-in-out infinite;
+}
+
+@keyframes winnerScale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Estilos para los globos */
+#balloons-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -150px;
+    width: 60px;
+    height: 90px;
+    background-color: #ffcb57;
+    border-radius: 50%;
+    animation: fly 6s ease-in infinite;
+    transform: rotate(30deg);
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.balloon:nth-child(2n) {
+    background-color: #ff5733;
+}
+.balloon:nth-child(3n) {
+    background-color: #28a745;
+}
+.balloon:nth-child(4n) {
+    background-color: #2196f3;
+}
+.balloon:nth-child(5n) {
+    background-color: #f50057;
+}
+.balloon:nth-child(6n) {
+    background-color: #9c27b0;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-150vh) rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #game-board {
+        grid-template-columns: repeat(3, 100px);
+        grid-template-rows: repeat(3, 100px);
+    }
+    
+    .cell {
+        width: 100px;
+        height: 100px;
+        font-size: 2rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    #winner-message {
+        font-size: 1.5rem;
+    }
+
+    #restartButton {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    
+}
+
+

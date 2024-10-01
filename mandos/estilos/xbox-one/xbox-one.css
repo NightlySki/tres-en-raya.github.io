@@ -1,0 +1,11 @@
+/* mandos/estilos/xbox-one/xbox-one.css */
+
+.cell {
+    position: relative;
+}
+
+.cell.highlight {
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7), 0 0 30px rgba(0, 255, 0, 0.5);
+    background-color: black;
+    z-index: 1;
+}
