@@ -6,6 +6,8 @@ const clickSound = document.getElementById('click-sound'); // Sonido de clic
 const noWinsSound = document.getElementById('no-wins-sound'); // Sonido de empate
 const xWinsSound = document.getElementById('X-Wins'); // Sonido de victoria de X
 const oWinsSound = document.getElementById('O-Wins'); // Sonido de victoria de O
+const restartSound = document.getElementById('restart-sound'); // Sonido de reinicio
+
 let currentTurn = 'X';
 let board = Array(9).fill(null);
 
@@ -47,8 +49,10 @@ function handleClick(e) {
         }
     } else if (isDraw()) {
         winnerMessage.innerText = "Es un Empate!";
+        triggerBalloons(); // Añadido: llamar a la función de globos en empate
         noWinsSound.currentTime = 0; // Reinicia el sonido de empate
         noWinsSound.play(); // Reproduce el sonido de empate
+        blinkCells(); // Añadido: hacer parpadear las celdas
     } else {
         swapTurns();
     }
@@ -88,6 +92,7 @@ function isDraw() {
     return board.every(cell => cell);
 }
 
+// Función para reiniciar el juego
 function restartGame() {
     currentTurn = 'X';
     board = Array(9).fill(null);
@@ -98,6 +103,7 @@ function restartGame() {
     });
     winnerMessage.innerText = '';
     clearBalloons(); // Limpiar globos al reiniciar el juego
+    clearBlink(); // Limpiar el parpadeo de las celdas
 }
 
 // Función para generar globos
@@ -116,8 +122,27 @@ function clearBalloons() {
     balloonsContainer.innerHTML = '';
 }
 
+// Función para hacer parpadear las celdas en caso de empate
+function blinkCells() {
+    cells.forEach(cell => {
+        cell.classList.add('multicolor'); // Añadir clase de parpadeo
+    });
+}
+
+// Función para limpiar el parpadeo
+function clearBlink() {
+    cells.forEach(cell => {
+        cell.classList.remove('multicolor'); // Quitar clase de parpadeo
+    });
+}
+
+// Añadir el sonido al botón de reinicio
+restartButton.addEventListener('click', () => {
+    restartSound.currentTime = 0; // Reinicia el sonido de reinicio
+    restartSound.play(); // Reproduce el sonido de reinicio
+    restartGame(); // Llama a la función que reinicia el juego
+});
+
 cells.forEach(cell => {
     cell.addEventListener('click', handleClick);
 });
-
-restartButton.addEventListener('click', restartGame);
