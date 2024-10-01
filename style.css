@@ -63,12 +63,11 @@ h1 {
     transition: transform 0.1s;
 }
 
-/* Añadir estilos de enfoque para las celdas */
 .cell:focus {
-    outline: none; /* Quitar el contorno predeterminado */
-    box-shadow: 0 0 0 4px rgba(255, 203, 87, 0.5); /* Resaltar la celda con un efecto de sombra */
-    background: #48484a; /* Mantener el cambio de fondo al hacer foco */
-    transform: scale(1.05); /* Efecto de aumento al hacer foco */
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255, 203, 87, 0.5);
+    background: #48484a;
+    transform: scale(1.05);
 }
 
 #restartButton {
@@ -159,6 +158,22 @@ h1 {
     }
 }
 
+/* Estilos de parpadeo para empate */
+.multicolor {
+    animation: blink 0.5s infinite; /* Duración de 0.5s y repetición infinita */
+}
+
+@keyframes blink {
+    0%, 100% {
+        background-color: #3a3a3c; /* Color original */
+        color: #ffcb57; /* Color original del texto */
+    }
+    50% {
+        background-color: #ffcb57; /* Color durante el parpadeo */
+        color: #3a3a3c; /* Color del texto durante el parpadeo */
+    }
+}
+
 @media screen and (max-width: 768px) {
     #game-board {
         grid-template-columns: repeat(3, 100px);
@@ -183,7 +198,5 @@ h1 {
         padding: 10px 20px;
         font-size: 1rem;
     }
-    
 }
-
 
